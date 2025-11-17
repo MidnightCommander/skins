@@ -20,8 +20,6 @@ McConst.colors = {
     'brightmagenta' : '#FF55FF',
     'yellow'        : '#FFFF55',
     'white'         : '#FFFFFF',
-    'RESERVED1'     : '#FFFFFF',
-    'RESERVED2'     : '#FFFFFF',
     'color0'   : '#000000',
     'color1'   : '#800000',
     'color2'   : '#008000',
