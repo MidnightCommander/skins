@@ -31,16 +31,18 @@ class McStyleEntry{
         const entry = new McStyleEntry();
 
         // foreground color
-        if(parts.length > 0)
+        if(parts[0])
             entry.color = parts[0];
 
         // background color
-        if(parts.length > 1)
+        if(parts[1])
             entry.colorBg = parts[1];
 
         // if style specified
-        if(parts.length > 2)
+        if(parts[2])
         {
+            entry.attributes = true;
+
             const style = parts[2];
             if(style.toLowerCase().indexOf("bold") !== -1)
                 entry.bold = true;
@@ -144,14 +146,10 @@ class CssGenerator
         if(entry.colorBg){
             css += 'background-color: ' + McUtils.parseMcColor(entry.colorBg) + ';' + "\n";
         }
-        if(entry.bold){
-            css += 'font-weight: bold;' + "\n";
-        }
-        if(entry.italic){
-            css += 'font-style: italic;' + "\n";
-        }
-        if(entry.underline){
-            css += 'text-decoration: underline;' + "\n";
+        if(entry.attributes){
+            css += 'font-weight: ' + (entry.bold ? 'bold' : 'normal') + ';' + "\n";
+            css += 'font-style: ' + (entry.italic ? 'italic' : 'normal') + ';' + "\n";
+            css += 'text-decoration: ' + (entry.underline ? 'underline' : 'none') + ';' + "\n";
         }
         return css;
     }
