@@ -13,7 +13,6 @@ McConst.colors = {
     'brown'         : '#BABA00',
     'lightgray'     : '#BABABA',
     'gray'          : '#555555',
-    'darkgray'      : '#555555',
     'brightblue'    : '#5555FF',
     'brightgreen'   : '#55FF55',
     'brightcyan'    : '#55FFFF',
