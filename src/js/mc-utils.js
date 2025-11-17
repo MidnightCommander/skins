@@ -52,10 +52,10 @@ class McUtils {
         // rgbXXX format
         if(mcColor.toLowerCase().startsWith('rgb')){
             // $r = str_pad(dechex(round(255 * $key{3} / 5)), 2, STR_PAD_LEFT);
-            const r = Math.round(255 * mcColor[3] / 5).toString(16).padStart(2, '0');
-            const g = Math.round(255 * mcColor[4] / 5).toString(16).padStart(2, '0');
-            const b = Math.round(255 * mcColor[5] / 5).toString(16).padStart(2, '0');
-            return '#' + r + g + b;
+            const r = mcColor[3];
+            const g = mcColor[4];
+            const b = mcColor[5];
+            return McConst.colors['color' + (16 + 36 * parseInt(r) + 6 * parseInt(g) + parseInt(b))];
         }
 
         // grayXX format
