@@ -11,7 +11,7 @@ table.terminal {
     border: 0;
 }
 
-span.linux_colors, table.terminal td
+td.skin pre
 {
     color: #BABABA;
     background-color: #000000;
