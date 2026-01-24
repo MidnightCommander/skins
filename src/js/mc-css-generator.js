@@ -16,6 +16,8 @@ class McStyleEntry{
         this.bold = false;
         this.italic = false;
         this.underline = false;
+        this.reverse = false;
+        this.blink = false;
     }
 
     /**
@@ -45,6 +47,8 @@ class McStyleEntry{
             this.bold = false;
             this.italic = false;
             this.underline = false;
+            this.reverse = false;
+            this.blink = false;
 
             const attrs = parts[2].split('+');
             for(const attr of attrs){
@@ -54,6 +58,10 @@ class McStyleEntry{
                     this.italic = true;
                 else if(attr == "underline")
                     this.underline = true;
+                else if(attr == "reverse")
+                    this.reverse = true;
+                else if(attr == "blink")
+                    this.blink = true;
             }
         }
     }
@@ -107,6 +115,7 @@ class CssGenerator
 
         // header
         let cssHeader = '';
+        cssHeader += "@keyframes blinker { 50% { color: transparent; } }\n";
 
         return cssHeader + resultCss;
     }
@@ -144,15 +153,18 @@ class CssGenerator
     renderSelectorProperties(entry)
     {
         let css = '';
-        if(entry.color){
-            css += 'color: ' + McUtils.parseMcColor(entry.color) + ';' + "\n";
+        let fg = entry.reverse ? entry.colorBg : entry.color;
+        let bg = entry.reverse ? entry.color : entry.colorBg;
+        if(fg){
+            css += 'color: ' + McUtils.parseMcColor(fg) + ';' + "\n";
         }
-        if(entry.colorBg){
-            css += 'background-color: ' + McUtils.parseMcColor(entry.colorBg) + ';' + "\n";
+        if(bg){
+            css += 'background-color: ' + McUtils.parseMcColor(bg) + ';' + "\n";
         }
         css += 'font-weight: ' + (entry.bold ? 'bold' : 'normal') + ';' + "\n";
         css += 'font-style: ' + (entry.italic ? 'italic' : 'normal') + ';' + "\n";
         css += 'text-decoration: ' + (entry.underline ? 'underline' : 'none') + ';' + "\n";
+        css += 'animation: ' + (entry.blink ? 'blinker 1s step-start infinite' : 'none') + ';' + "\n";
         return css;
     }
 
