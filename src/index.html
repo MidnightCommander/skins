@@ -18,7 +18,7 @@
     <script src="js/mc-tpl.js?REV_SE-REV_MC" type="text/javascript"></script>
     <script src="js/mc-templates.js?REV_SE-REV_MC" type="text/javascript"></script>
     <script src="js/mc-utils.js?REV_SE-REV_MC" type="text/javascript"></script>
-    <script src="js/cmp-colors.js?REV_SE-REV_MC" type="text/javascript"></script>
+    <script src="js/mc-cmp-colors.js?REV_SE-REV_MC" type="text/javascript"></script>
 
     <script type="text/javascript">
         $(function () {
@@ -75,8 +75,8 @@
                 }
             });
 
-            // Insert ColorsComponent
-            $('.cmp-colors').html(new ColorsComponent().render());
+            // Insert McColorsComponent
+            $('.cmp-colors').html(new McColorsComponent().render());
 
             $.get('skins.json?REV_SE-REV_MC', {}, function (data) {
                 $.each(data, function (key, value) {

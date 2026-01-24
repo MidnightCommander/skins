@@ -1,4 +1,4 @@
-class ColorsComponent
+class McColorsComponent
 {
     constructor(){
         this.template = `
