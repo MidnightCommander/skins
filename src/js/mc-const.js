@@ -2,281 +2,268 @@ class McConst
 {
 }
 
-McConst.colors = {
-    'default'		:	'#000000',
-    'black'		:	'#000000',
-    'blue'		:	'#0000AA',
-    'green'		:	'#00AA00',
-    'cyan'		:	'#00BABA',
-    'red'		:	'#AA0000',
-    'magenta'	:	'#AA00AA',
-    'brown'		:	'#BABA00',
-    'lightgray'	:	'#BABABA',
-    'gray'		:	'#555555',
-    'darkgray'	:	'#555555',
-    'brightblue'	:	'#5555FF',
-    'brightgreen'	:	'#55FF55',
-    'brightcyan'	:	'#55FFFF',
-    'brightred'	    :	'#FF5555',
-    'brightmagenta'	:	'#FF55FF',
-    'yellow'	    :	'#FFFF55',
-    'white'		    :	'#FFFFFF',
-    'RESERVED1'	    :	'#FFFFFF',
-    'RESERVED2'		    :	'#FFFFFF',
-    'color0' : '#000000',
-    'color1' : '#800000',
-    'color2' : '#008000',
-    'color3' : '#808000',
-    'color4' : '#000080',
-    'color5' : '#800080',
-    'color6' : '#008080',
-    'color7' : '#c0c0c0',
-    'color8' : '#808080',
-    'color9' : '#ff0000',
-    'color10' : '#00ff00',
-    'color11' : '#ffff00',
-    'color12' : '#0000ff',
-    'color13' : '#ff00ff',
-    'color14' : '#00ffff',
-    'color15' : '#ffffff',
-    'color16' : '#000000',
-    'color17' : '#00005f',
-    'color18' : '#000087',
-    'color19' : '#0000af',
-    'color20' : '#0000d7',
-    'color21' : '#0000ff',
-    'color22' : '#005f00',
-    'color23' : '#005f5f',
-    'color24' : '#005f87',
-    'color25' : '#005faf',
-    'color26' : '#005fd7',
-    'color27' : '#005fff',
-    'color28' : '#008700',
-    'color29' : '#00875f',
-    'color30' : '#008787',
-    'color31' : '#0087af',
-    'color32' : '#0087d7',
-    'color33' : '#0087ff',
-    'color34' : '#00af00',
-    'color35' : '#00af5f',
-    'color36' : '#00af87',
-    'color37' : '#00afaf',
-    'color38' : '#00afd7',
-    'color39' : '#00afff',
-    'color40' : '#00d700',
-    'color41' : '#00d75f',
-    'color42' : '#00d787',
-    'color43' : '#00d7af',
-    'color44' : '#00d7d7',
-    'color45' : '#00d7ff',
-    'color46' : '#00ff00',
-    'color47' : '#00ff5f',
-    'color48' : '#00ff87',
-    'color49' : '#00ffaf',
-    'color50' : '#00ffd7',
-    'color51' : '#00ffff',
-    'color52' : '#5f0000',
-    'color53' : '#5f005f',
-    'color54' : '#5f0087',
-    'color55' : '#5f00af',
-    'color56' : '#5f00d7',
-    'color57' : '#5f00ff',
-    'color58' : '#5f5f00',
-    'color59' : '#5f5f5f',
-    'color60' : '#5f5f87',
-    'color61' : '#5f5faf',
-    'color62' : '#5f5fd7',
-    'color63' : '#5f5fff',
-    'color64' : '#5f8700',
-    'color65' : '#5f875f',
-    'color66' : '#5f8787',
-    'color67' : '#5f87af',
-    'color68' : '#5f87d7',
-    'color69' : '#5f87ff',
-    'color70' : '#5faf00',
-    'color71' : '#5faf5f',
-    'color72' : '#5faf87',
-    'color73' : '#5fafaf',
-    'color74' : '#5fafd7',
-    'color75' : '#5fafff',
-    'color76' : '#5fd700',
-    'color77' : '#5fd75f',
-    'color78' : '#5fd787',
-    'color79' : '#5fd7af',
-    'color80' : '#5fd7d7',
-    'color81' : '#5fd7ff',
-    'color82' : '#5fff00',
-    'color83' : '#5fff5f',
-    'color84' : '#5fff87',
-    'color85' : '#5fffaf',
-    'color86' : '#5fffd7',
-    'color87' : '#5fffff',
-    'color88' : '#870000',
-    'color89' : '#87005f',
-    'color90' : '#870087',
-    'color91' : '#8700af',
-    'color92' : '#8700d7',
-    'color93' : '#8700ff',
-    'color94' : '#875f00',
-    'color95' : '#875f5f',
-    'color96' : '#875f87',
-    'color97' : '#875faf',
-    'color98' : '#875fd7',
-    'color99' : '#875fff',
-    'color100' : '#878700',
-    'color101' : '#87875f',
-    'color102' : '#878787',
-    'color103' : '#8787af',
-    'color104' : '#8787d7',
-    'color105' : '#8787ff',
-    'color106' : '#87af00',
-    'color107' : '#87af5f',
-    'color108' : '#87af87',
-    'color109' : '#87afaf',
-    'color110' : '#87afd7',
-    'color111' : '#87afff',
-    'color112' : '#87d700',
-    'color113' : '#87d75f',
-    'color114' : '#87d787',
-    'color115' : '#87d7af',
-    'color116' : '#87d7d7',
-    'color117' : '#87d7ff',
-    'color118' : '#87ff00',
-    'color119' : '#87ff5f',
-    'color120' : '#87ff87',
-    'color121' : '#87ffaf',
-    'color122' : '#87ffd7',
-    'color123' : '#87ffff',
-    'color124' : '#af0000',
-    'color125' : '#af005f',
-    'color126' : '#af0087',
-    'color127' : '#af00af',
-    'color128' : '#af00d7',
-    'color129' : '#af00ff',
-    'color130' : '#af5f00',
-    'color131' : '#af5f5f',
-    'color132' : '#af5f87',
-    'color133' : '#af5faf',
-    'color134' : '#af5fd7',
-    'color135' : '#af5fff',
-    'color136' : '#af8700',
-    'color137' : '#af875f',
-    'color138' : '#af8787',
-    'color139' : '#af87af',
-    'color140' : '#af87d7',
-    'color141' : '#af87ff',
-    'color142' : '#afaf00',
-    'color143' : '#afaf5f',
-    'color144' : '#afaf87',
-    'color145' : '#afafaf',
-    'color146' : '#afafd7',
-    'color147' : '#afafff',
-    'color148' : '#afd700',
-    'color149' : '#afd75f',
-    'color150' : '#afd787',
-    'color151' : '#afd7af',
-    'color152' : '#afd7d7',
-    'color153' : '#afd7ff',
-    'color154' : '#afff00',
-    'color155' : '#afff5f',
-    'color156' : '#afff87',
-    'color157' : '#afffaf',
-    'color158' : '#afffd7',
-    'color159' : '#afffff',
-    'color160' : '#d70000',
-    'color161' : '#d7005f',
-    'color162' : '#d70087',
-    'color163' : '#d700af',
-    'color164' : '#d700d7',
-    'color165' : '#d700ff',
-    'color166' : '#d75f00',
-    'color167' : '#d75f5f',
-    'color168' : '#d75f87',
-    'color169' : '#d75faf',
-    'color170' : '#d75fd7',
-    'color171' : '#d75fff',
-    'color172' : '#d78700',
-    'color173' : '#d7875f',
-    'color174' : '#d78787',
-    'color175' : '#d787af',
-    'color176' : '#d787d7',
-    'color177' : '#d787ff',
-    'color178' : '#d7af00',
-    'color179' : '#d7af5f',
-    'color180' : '#d7af87',
-    'color181' : '#d7afaf',
-    'color182' : '#d7afd7',
-    'color183' : '#d7afff',
-    'color184' : '#d7d700',
-    'color185' : '#d7d75f',
-    'color186' : '#d7d787',
-    'color187' : '#d7d7af',
-    'color188' : '#d7d7d7',
-    'color189' : '#d7d7ff',
-    'color190' : '#d7ff00',
-    'color191' : '#d7ff5f',
-    'color192' : '#d7ff87',
-    'color193' : '#d7ffaf',
-    'color194' : '#d7ffd7',
-    'color195' : '#d7ffff',
-    'color196' : '#ff0000',
-    'color197' : '#ff005f',
-    'color198' : '#ff0087',
-    'color199' : '#ff00af',
-    'color200' : '#ff00d7',
-    'color201' : '#ff00ff',
-    'color202' : '#ff5f00',
-    'color203' : '#ff5f5f',
-    'color204' : '#ff5f87',
-    'color205' : '#ff5faf',
-    'color206' : '#ff5fd7',
-    'color207' : '#ff5fff',
-    'color208' : '#ff8700',
-    'color209' : '#ff875f',
-    'color210' : '#ff8787',
-    'color211' : '#ff87af',
-    'color212' : '#ff87d7',
-    'color213' : '#ff87ff',
-    'color214' : '#ffaf00',
-    'color215' : '#ffaf5f',
-    'color216' : '#ffaf87',
-    'color217' : '#ffafaf',
-    'color218' : '#ffafd7',
-    'color219' : '#ffafff',
-    'color220' : '#ffd700',
-    'color221' : '#ffd75f',
-    'color222' : '#ffd787',
-    'color223' : '#ffd7af',
-    'color224' : '#ffd7d7',
-    'color225' : '#ffd7ff',
-    'color226' : '#ffff00',
-    'color227' : '#ffff5f',
-    'color228' : '#ffff87',
-    'color229' : '#ffffaf',
-    'color230' : '#ffffd7',
-    'color231' : '#ffffff',
-    'color232' : '#080808',
-    'color233' : '#121212',
-    'color234' : '#1c1c1c',
-    'color235' : '#262626',
-    'color236' : '#303030',
-    'color237' : '#3a3a3a',
-    'color238' : '#444444',
-    'color239' : '#4e4e4e',
-    'color240' : '#585858',
-    'color241' : '#626262',
-    'color242' : '#6c6c6c',
-    'color243' : '#767676',
-    'color244' : '#808080',
-    'color245' : '#8a8a8a',
-    'color246' : '#949494',
-    'color247' : '#9e9e9e',
-    'color248' : '#a8a8a8',
-    'color249' : '#b2b2b2',
-    'color250' : '#bcbcbc',
-    'color251' : '#c6c6c6',
-    'color252' : '#d0d0d0',
-    'color253' : '#dadada',
-    'color254' : '#e4e4e4',
-    'color255' : '#eeeeee',
-};
+McConst.palette = [
+  // basic dark colors
+  [ 'black',         '#000000' ],  //  0
+  [ 'red',           '#AA0000' ],  //  1
+  [ 'green',         '#00AA00' ],  //  2
+  [ 'brown',         '#BABA00' ],  //  3
+  [ 'blue',          '#0000AA' ],  //  4
+  [ 'magenta',       '#AA00AA' ],  //  5
+  [ 'cyan',          '#00BABA' ],  //  6
+  [ 'lightgray',     '#BABABA' ],  //  7
+
+  // basic light colors
+  [ 'gray',          '#555555' ],  //  8
+  [ 'brightred',     '#FF5555' ],  //  9
+  [ 'brightgreen',   '#55FF55' ],  // 10
+  [ 'yellow',        '#FFFF55' ],  // 11
+  [ 'brightblue',    '#5555FF' ],  // 12
+  [ 'brightmagenta', '#FF55FF' ],  // 13
+  [ 'brightcyan',    '#55FFFF' ],  // 14
+  [ 'white',         '#FFFFFF' ],  // 15
+
+  // 6x6x6 color cube
+  [ 'rgb000', '#000000' ],  //  16
+  [ 'rgb001', '#00005F' ],  //  17
+  [ 'rgb002', '#000087' ],  //  18
+  [ 'rgb003', '#0000AF' ],  //  19
+  [ 'rgb004', '#0000D7' ],  //  20
+  [ 'rgb005', '#0000FF' ],  //  21
+  [ 'rgb010', '#005F00' ],  //  22
+  [ 'rgb011', '#005F5F' ],  //  23
+  [ 'rgb012', '#005F87' ],  //  24
+  [ 'rgb013', '#005FAF' ],  //  25
+  [ 'rgb014', '#005FD7' ],  //  26
+  [ 'rgb015', '#005FFF' ],  //  27
+  [ 'rgb020', '#008700' ],  //  28
+  [ 'rgb021', '#00875F' ],  //  29
+  [ 'rgb022', '#008787' ],  //  30
+  [ 'rgb023', '#0087AF' ],  //  31
+  [ 'rgb024', '#0087D7' ],  //  32
+  [ 'rgb025', '#0087FF' ],  //  33
+  [ 'rgb030', '#00AF00' ],  //  34
+  [ 'rgb031', '#00AF5F' ],  //  35
+  [ 'rgb032', '#00AF87' ],  //  36
+  [ 'rgb033', '#00AFAF' ],  //  37
+  [ 'rgb034', '#00AFD7' ],  //  38
+  [ 'rgb035', '#00AFFF' ],  //  39
+  [ 'rgb040', '#00D700' ],  //  40
+  [ 'rgb041', '#00D75F' ],  //  41
+  [ 'rgb042', '#00D787' ],  //  42
+  [ 'rgb043', '#00D7AF' ],  //  43
+  [ 'rgb044', '#00D7D7' ],  //  44
+  [ 'rgb045', '#00D7FF' ],  //  45
+  [ 'rgb050', '#00FF00' ],  //  46
+  [ 'rgb051', '#00FF5F' ],  //  47
+  [ 'rgb052', '#00FF87' ],  //  48
+  [ 'rgb053', '#00FFAF' ],  //  49
+  [ 'rgb054', '#00FFD7' ],  //  50
+  [ 'rgb055', '#00FFFF' ],  //  51
+  [ 'rgb100', '#5F0000' ],  //  52
+  [ 'rgb101', '#5F005F' ],  //  53
+  [ 'rgb102', '#5F0087' ],  //  54
+  [ 'rgb103', '#5F00AF' ],  //  55
+  [ 'rgb104', '#5F00D7' ],  //  56
+  [ 'rgb105', '#5F00FF' ],  //  57
+  [ 'rgb110', '#5F5F00' ],  //  58
+  [ 'rgb111', '#5F5F5F' ],  //  59
+  [ 'rgb112', '#5F5F87' ],  //  60
+  [ 'rgb113', '#5F5FAF' ],  //  61
+  [ 'rgb114', '#5F5FD7' ],  //  62
+  [ 'rgb115', '#5F5FFF' ],  //  63
+  [ 'rgb120', '#5F8700' ],  //  64
+  [ 'rgb121', '#5F875F' ],  //  65
+  [ 'rgb122', '#5F8787' ],  //  66
+  [ 'rgb123', '#5F87AF' ],  //  67
+  [ 'rgb124', '#5F87D7' ],  //  68
+  [ 'rgb125', '#5F87FF' ],  //  69
+  [ 'rgb130', '#5FAF00' ],  //  70
+  [ 'rgb131', '#5FAF5F' ],  //  71
+  [ 'rgb132', '#5FAF87' ],  //  72
+  [ 'rgb133', '#5FAFAF' ],  //  73
+  [ 'rgb134', '#5FAFD7' ],  //  74
+  [ 'rgb135', '#5FAFFF' ],  //  75
+  [ 'rgb140', '#5FD700' ],  //  76
+  [ 'rgb141', '#5FD75F' ],  //  77
+  [ 'rgb142', '#5FD787' ],  //  78
+  [ 'rgb143', '#5FD7AF' ],  //  79
+  [ 'rgb144', '#5FD7D7' ],  //  80
+  [ 'rgb145', '#5FD7FF' ],  //  81
+  [ 'rgb150', '#5FFF00' ],  //  82
+  [ 'rgb151', '#5FFF5F' ],  //  83
+  [ 'rgb152', '#5FFF87' ],  //  84
+  [ 'rgb153', '#5FFFAF' ],  //  85
+  [ 'rgb154', '#5FFFD7' ],  //  86
+  [ 'rgb155', '#5FFFFF' ],  //  87
+  [ 'rgb200', '#870000' ],  //  88
+  [ 'rgb201', '#87005F' ],  //  89
+  [ 'rgb202', '#870087' ],  //  90
+  [ 'rgb203', '#8700AF' ],  //  91
+  [ 'rgb204', '#8700D7' ],  //  92
+  [ 'rgb205', '#8700FF' ],  //  93
+  [ 'rgb210', '#875F00' ],  //  94
+  [ 'rgb211', '#875F5F' ],  //  95
+  [ 'rgb212', '#875F87' ],  //  96
+  [ 'rgb213', '#875FAF' ],  //  97
+  [ 'rgb214', '#875FD7' ],  //  98
+  [ 'rgb215', '#875FFF' ],  //  99
+  [ 'rgb220', '#878700' ],  // 100
+  [ 'rgb221', '#87875F' ],  // 101
+  [ 'rgb222', '#878787' ],  // 102
+  [ 'rgb223', '#8787AF' ],  // 103
+  [ 'rgb224', '#8787D7' ],  // 104
+  [ 'rgb225', '#8787FF' ],  // 105
+  [ 'rgb230', '#87AF00' ],  // 106
+  [ 'rgb231', '#87AF5F' ],  // 107
+  [ 'rgb232', '#87AF87' ],  // 108
+  [ 'rgb233', '#87AFAF' ],  // 109
+  [ 'rgb234', '#87AFD7' ],  // 110
+  [ 'rgb235', '#87AFFF' ],  // 111
+  [ 'rgb240', '#87D700' ],  // 112
+  [ 'rgb241', '#87D75F' ],  // 113
+  [ 'rgb242', '#87D787' ],  // 114
+  [ 'rgb243', '#87D7AF' ],  // 115
+  [ 'rgb244', '#87D7D7' ],  // 116
+  [ 'rgb245', '#87D7FF' ],  // 117
+  [ 'rgb250', '#87FF00' ],  // 118
+  [ 'rgb251', '#87FF5F' ],  // 119
+  [ 'rgb252', '#87FF87' ],  // 120
+  [ 'rgb253', '#87FFAF' ],  // 121
+  [ 'rgb254', '#87FFD7' ],  // 122
+  [ 'rgb255', '#87FFFF' ],  // 123
+  [ 'rgb300', '#AF0000' ],  // 124
+  [ 'rgb301', '#AF005F' ],  // 125
+  [ 'rgb302', '#AF0087' ],  // 126
+  [ 'rgb303', '#AF00AF' ],  // 127
+  [ 'rgb304', '#AF00D7' ],  // 128
+  [ 'rgb305', '#AF00FF' ],  // 129
+  [ 'rgb310', '#AF5F00' ],  // 130
+  [ 'rgb311', '#AF5F5F' ],  // 131
+  [ 'rgb312', '#AF5F87' ],  // 132
+  [ 'rgb313', '#AF5FAF' ],  // 133
+  [ 'rgb314', '#AF5FD7' ],  // 134
+  [ 'rgb315', '#AF5FFF' ],  // 135
+  [ 'rgb320', '#AF8700' ],  // 136
+  [ 'rgb321', '#AF875F' ],  // 137
+  [ 'rgb322', '#AF8787' ],  // 138
+  [ 'rgb323', '#AF87AF' ],  // 139
+  [ 'rgb324', '#AF87D7' ],  // 140
+  [ 'rgb325', '#AF87FF' ],  // 141
+  [ 'rgb330', '#AFAF00' ],  // 142
+  [ 'rgb331', '#AFAF5F' ],  // 143
+  [ 'rgb332', '#AFAF87' ],  // 144
+  [ 'rgb333', '#AFAFAF' ],  // 145
+  [ 'rgb334', '#AFAFD7' ],  // 146
+  [ 'rgb335', '#AFAFFF' ],  // 147
+  [ 'rgb340', '#AFD700' ],  // 148
+  [ 'rgb341', '#AFD75F' ],  // 149
+  [ 'rgb342', '#AFD787' ],  // 150
+  [ 'rgb343', '#AFD7AF' ],  // 151
+  [ 'rgb344', '#AFD7D7' ],  // 152
+  [ 'rgb345', '#AFD7FF' ],  // 153
+  [ 'rgb350', '#AFFF00' ],  // 154
+  [ 'rgb351', '#AFFF5F' ],  // 155
+  [ 'rgb352', '#AFFF87' ],  // 156
+  [ 'rgb353', '#AFFFAF' ],  // 157
+  [ 'rgb354', '#AFFFD7' ],  // 158
+  [ 'rgb355', '#AFFFFF' ],  // 159
+  [ 'rgb400', '#D70000' ],  // 160
+  [ 'rgb401', '#D7005F' ],  // 161
+  [ 'rgb402', '#D70087' ],  // 162
+  [ 'rgb403', '#D700AF' ],  // 163
+  [ 'rgb404', '#D700D7' ],  // 164
+  [ 'rgb405', '#D700FF' ],  // 165
+  [ 'rgb410', '#D75F00' ],  // 166
+  [ 'rgb411', '#D75F5F' ],  // 167
+  [ 'rgb412', '#D75F87' ],  // 168
+  [ 'rgb413', '#D75FAF' ],  // 169
+  [ 'rgb414', '#D75FD7' ],  // 170
+  [ 'rgb415', '#D75FFF' ],  // 171
+  [ 'rgb420', '#D78700' ],  // 172
+  [ 'rgb421', '#D7875F' ],  // 173
+  [ 'rgb422', '#D78787' ],  // 174
+  [ 'rgb423', '#D787AF' ],  // 175
+  [ 'rgb424', '#D787D7' ],  // 176
+  [ 'rgb425', '#D787FF' ],  // 177
+  [ 'rgb430', '#D7AF00' ],  // 178
+  [ 'rgb431', '#D7AF5F' ],  // 179
+  [ 'rgb432', '#D7AF87' ],  // 180
+  [ 'rgb433', '#D7AFAF' ],  // 181
+  [ 'rgb434', '#D7AFD7' ],  // 182
+  [ 'rgb435', '#D7AFFF' ],  // 183
+  [ 'rgb440', '#D7D700' ],  // 184
+  [ 'rgb441', '#D7D75F' ],  // 185
+  [ 'rgb442', '#D7D787' ],  // 186
+  [ 'rgb443', '#D7D7AF' ],  // 187
+  [ 'rgb444', '#D7D7D7' ],  // 188
+  [ 'rgb445', '#D7D7FF' ],  // 189
+  [ 'rgb450', '#D7FF00' ],  // 190
+  [ 'rgb451', '#D7FF5F' ],  // 191
+  [ 'rgb452', '#D7FF87' ],  // 192
+  [ 'rgb453', '#D7FFAF' ],  // 193
+  [ 'rgb454', '#D7FFD7' ],  // 194
+  [ 'rgb455', '#D7FFFF' ],  // 195
+  [ 'rgb500', '#FF0000' ],  // 196
+  [ 'rgb501', '#FF005F' ],  // 197
+  [ 'rgb502', '#FF0087' ],  // 198
+  [ 'rgb503', '#FF00AF' ],  // 199
+  [ 'rgb504', '#FF00D7' ],  // 200
+  [ 'rgb505', '#FF00FF' ],  // 201
+  [ 'rgb510', '#FF5F00' ],  // 202
+  [ 'rgb511', '#FF5F5F' ],  // 203
+  [ 'rgb512', '#FF5F87' ],  // 204
+  [ 'rgb513', '#FF5FAF' ],  // 205
+  [ 'rgb514', '#FF5FD7' ],  // 206
+  [ 'rgb515', '#FF5FFF' ],  // 207
+  [ 'rgb520', '#FF8700' ],  // 208
+  [ 'rgb521', '#FF875F' ],  // 209
+  [ 'rgb522', '#FF8787' ],  // 210
+  [ 'rgb523', '#FF87AF' ],  // 211
+  [ 'rgb524', '#FF87D7' ],  // 212
+  [ 'rgb525', '#FF87FF' ],  // 213
+  [ 'rgb530', '#FFAF00' ],  // 214
+  [ 'rgb531', '#FFAF5F' ],  // 215
+  [ 'rgb532', '#FFAF87' ],  // 216
+  [ 'rgb533', '#FFAFAF' ],  // 217
+  [ 'rgb534', '#FFAFD7' ],  // 218
+  [ 'rgb535', '#FFAFFF' ],  // 219
+  [ 'rgb540', '#FFD700' ],  // 220
+  [ 'rgb541', '#FFD75F' ],  // 221
+  [ 'rgb542', '#FFD787' ],  // 222
+  [ 'rgb543', '#FFD7AF' ],  // 223
+  [ 'rgb544', '#FFD7D7' ],  // 224
+  [ 'rgb545', '#FFD7FF' ],  // 225
+  [ 'rgb550', '#FFFF00' ],  // 226
+  [ 'rgb551', '#FFFF5F' ],  // 227
+  [ 'rgb552', '#FFFF87' ],  // 228
+  [ 'rgb553', '#FFFFAF' ],  // 229
+  [ 'rgb554', '#FFFFD7' ],  // 230
+  [ 'rgb555', '#FFFFFF' ],  // 231
+
+  // 24-step grayscale ramp
+  [ 'gray0',  '#080808' ],  // 232
+  [ 'gray1',  '#121212' ],  // 233
+  [ 'gray2',  '#1C1C1C' ],  // 234
+  [ 'gray3',  '#262626' ],  // 235
+  [ 'gray4',  '#303030' ],  // 236
+  [ 'gray5',  '#3A3A3A' ],  // 237
+  [ 'gray6',  '#444444' ],  // 238
+  [ 'gray7',  '#4E4E4E' ],  // 239
+  [ 'gray8',  '#585858' ],  // 240
+  [ 'gray9',  '#626262' ],  // 241
+  [ 'gray10', '#6C6C6C' ],  // 242
+  [ 'gray11', '#767676' ],  // 243
+  [ 'gray12', '#808080' ],  // 244
+  [ 'gray13', '#8A8A8A' ],  // 245
+  [ 'gray14', '#949494' ],  // 246
+  [ 'gray15', '#9E9E9E' ],  // 247
+  [ 'gray16', '#A8A8A8' ],  // 248
+  [ 'gray17', '#B2B2B2' ],  // 249
+  [ 'gray18', '#BCBCBC' ],  // 250
+  [ 'gray19', '#C6C6C6' ],  // 251
+  [ 'gray20', '#D0D0D0' ],  // 252
+  [ 'gray21', '#DADADA' ],  // 253
+  [ 'gray22', '#E4E4E4' ],  // 254
+  [ 'gray23', '#EEEEEE' ]   // 255
+];
