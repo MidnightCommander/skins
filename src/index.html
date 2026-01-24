@@ -13,7 +13,7 @@
     <script src="js/jquery-1.2.6.js" type="text/javascript"></script>
     <script src="js/ui.core.js?REV_SE-REV_MC" type="text/javascript"></script>
     <script src="js/ui.tabs.js?REV_SE-REV_MC" type="text/javascript"></script>
-    <script src="js/mc-const.js?REV_SE-REV_MC" type="text/javascript"></script>
+    <script src="js/mc-palette.js?REV_SE-REV_MC" type="text/javascript"></script>
     <script src="js/mc-css-generator.js?REV_SE-REV_MC" type="text/javascript"></script>
     <script src="js/mc-tpl.js?REV_SE-REV_MC" type="text/javascript"></script>
     <script src="js/mc-templates.js?REV_SE-REV_MC" type="text/javascript"></script>
@@ -67,7 +67,6 @@
 
             $("select#skins").change();
 
-
             $(window).keydown(function (e) {
                 // Ctrl-Enter pressed
                 if (e.ctrlKey && e.keyCode === 13) {
@@ -75,7 +74,29 @@
                 }
             });
 
-            // Insert McColorsComponent
+            McPalette.basic_palettes.forEach(function(element, index) {
+                $('#terminal-palettes').append($('<option />').val(index).text(element.name));
+            });
+
+            $('#terminal-palettes').change(function() {
+                $('#btn-apply').click();
+                // Re-render the palette
+                $('.cmp-colors').html(new McColorsComponent().render());
+            });
+
+            $('#terminal-light').change(function() {
+                $('#btn-apply').click();
+            });
+
+            $('#terminal-bgimage').change(function() {
+                $('#btn-apply').click();
+            });
+
+            $('#terminal-boldbright').change(function() {
+                $('#btn-apply').click();
+            });
+
+            // Render the palette
             $('.cmp-colors').html(new McColorsComponent().render());
 
             $.get('skins.json?REV_SE-REV_MC', {}, function (data) {
@@ -123,7 +144,17 @@
         <div class="skin-view-container" id="fragment-skin-6"></div>
     </div>
     <div class="mt-2 ml-2" style="width: 810px">
-        Color palette<br><br>
+        Terminal's color settings
+        <br><br>
+        Palette:
+        <select id="terminal-palettes"></select>
+        &nbsp;&nbsp;
+        <label><input type="checkbox" id="terminal-light">Light mode</label>
+        &nbsp;&nbsp;
+        <label><input type="checkbox" id="terminal-bgimage">Background image</label>
+        &nbsp;&nbsp;
+        <label><input type="checkbox" id="terminal-boldbright">First 8 colors bright when bold</label>
+        <br><br>
         <div class="cmp-colors">
             <!-- colors will be displayed here -->
         </div>

@@ -87,6 +87,9 @@ class CssGenerator
         const skipSections = ['skin', 'lines', 'widget-panel', 'widget-scrollbar', 'widget-editor'];
         let resultCss = '';
 
+        McPalette.set_light_mode($('#terminal-light').is(':checked'));
+        McPalette.apply_palette($('#terminal-palettes').val());
+
         for(const sectionName in parsedIni)
         {
             if(!parsedIni.hasOwnProperty(sectionName))
@@ -115,6 +118,14 @@ class CssGenerator
 
         // header
         let cssHeader = '';
+
+        // terminal's default colors and bg image
+        cssHeader += "td.skin pre { ";
+        cssHeader += "color: " + McPalette.default_fg + "; background-color: " + McPalette.default_bg + "; ";
+        if($('#terminal-bgimage').is(':checked'))
+            cssHeader += "background-image: url('img/alpha-stripes.png'); ";
+        cssHeader += "}\n";
+
         cssHeader += "@keyframes blinker { 50% { color: transparent; } }\n";
 
         return cssHeader + resultCss;
@@ -153,13 +164,27 @@ class CssGenerator
     renderSelectorProperties(entry)
     {
         let css = '';
-        let fg = entry.reverse ? entry.colorBg : entry.color;
-        let bg = entry.reverse ? entry.color : entry.colorBg;
+        let fg = McUtils.parseMcColor(entry.color, entry.bold);
+        let bg = McUtils.parseMcColor(entry.colorBg, false);
+        if(entry.reverse){
+            // Swap fg and bg (after brightening fg subject to the bold attribute's behavior).
+            // Note that the background image won't be visible through the letters, meh.
+            if(fg == 'default')
+                fg = McPalette.default_fg;
+            if(bg == 'default')
+                bg = McPalette.default_bg;
+            let tmp = fg; fg = bg; bg = tmp;
+        }else{
+            if(fg == 'default')
+                fg = McPalette.default_fg;
+            if(bg == 'default')
+                bg = 'transparent';  // let us see the background image
+        }
         if(fg){
-            css += 'color: ' + McUtils.parseMcColor(fg) + ';' + "\n";
+            css += 'color: ' + fg + ';' + "\n";
         }
         if(bg){
-            css += 'background-color: ' + McUtils.parseMcColor(bg) + ';' + "\n";
+            css += 'background-color: ' + bg + ';' + "\n";
         }
         css += 'font-weight: ' + (entry.bold ? 'bold' : 'normal') + ';' + "\n";
         css += 'font-style: ' + (entry.italic ? 'italic' : 'normal') + ';' + "\n";

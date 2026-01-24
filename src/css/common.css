@@ -11,12 +11,6 @@ table.terminal {
     border: 0;
 }
 
-td.skin pre
-{
-    color: #BABABA;
-    background-color: #000000;
-}
-
 td.left, td.right
 {
     width: 2px;
@@ -31,7 +25,7 @@ td.top, td.bottom
 
 /* Editor UI */
 
-button, select{
+button#btn-apply, select#skins{
     font-size: 20px;
 }
 

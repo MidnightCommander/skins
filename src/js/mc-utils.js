@@ -41,26 +41,34 @@ class McUtils {
      * Convert colors from rgbXXX, grayXX and dictionary color names to web #RRGGBB format
      *
      * @param {string} mcColor
+     * @param {bool} is_bold
      * @return {string}
      */
-    static parseMcColor(mcColor)
+    static parseMcColor(mcColor, is_bold)
     {
         // "colorXXX" identifiers
         if (mcColor.startsWith('color')){
             const i = parseInt(mcColor.substring(5), 10);
-            return McConst.palette[i][1];
+            return McPalette.palette[i][1];
         }
 
         // palette colors using their names like "black", "red", "rgb123", "gray23" etc.
         for(let i = 0; i < 256; i++){
-            if(McConst.palette[i][0] == mcColor)
-                return McConst.palette[i][1];
+            if(McPalette.palette[i][0] == mcColor){
+                if(i < 8 && is_bold && $('#terminal-boldbright').is(':checked'))
+                    i += 8;
+                return McPalette.palette[i][1];
+            }
         }
 
         // #RRGGBB format (for true color skins)
         if(mcColor.startsWith('#')){
             return mcColor;
         }
+
+        // 'default' means the terminal's defaults. The return value is further processed by the caller.
+        if(mcColor == 'default')
+            return 'default';
     }
 
 

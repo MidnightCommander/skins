@@ -15,8 +15,8 @@ class McColorsComponent
             if(i % 36 == 16)
                 result += `<br>`;
             const key = 'color' + i;
-            const name = McConst.palette[i][0];
-            const color = McConst.palette[i][1];
+            const name = McPalette.palette[i][0];
+            const color = McPalette.palette[i][1];
             const onclickrgblabel = i < 16 ? "RGB in this palette" : "Standard RGB";
             const onclicktext = `Indexed name: ${key}\\nFriendly name: ${name}\\n${onclickrgblabel}: ${color}`;
             const tooltiptext = `${key} – ${name} – ${color}`;
