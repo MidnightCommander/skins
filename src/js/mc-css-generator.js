@@ -19,38 +19,43 @@ class McStyleEntry{
     }
 
     /**
-     * Create an instance from string
+     * Update an instance from string
+     *
+     * Begin with an instance created by the constructor, then update it with
+     * the ultimate fallback, then the previous fallback etc., and finally
+     * with the actual (possibly incomplete) values to be used.
      *
      * @param value string like "rgb400;rgb452;italic" or ";;underline" or "color123"
-     * @return {McStyleEntry}
      */
-    static createFromString(value)
+    updateFromString(value)
     {
         const parts = value.split(';');
 
-        const entry = new McStyleEntry();
-
         // foreground color
-        if(parts.length > 0)
-            entry.color = parts[0];
+        if(parts[0])  // if exists and nonempty
+            this.color = parts[0];
 
         // background color
-        if(parts.length > 1)
-            entry.colorBg = parts[1];
+        if(parts[1])  // if exists and nonempty
+            this.colorBg = parts[1];
 
         // if style specified
-        if(parts.length > 2)
+        if(parts[2])  // if exists and nonempty
         {
-            const style = parts[2];
-            if(style.toLowerCase().indexOf("bold") !== -1)
-                entry.bold = true;
-            if(style.toLowerCase().indexOf("italic") !== -1)
-                entry.italic = true;
-            if(style.toLowerCase().indexOf("underline") !== -1)
-                entry.underline = true;
-        }
+            this.bold = false;
+            this.italic = false;
+            this.underline = false;
 
-        return entry;
+            const attrs = parts[2].split('+');
+            for(const attr of attrs){
+                if(attr == "bold")
+                    this.bold = true;
+                else if(attr == "italic")
+                    this.italic = true;
+                else if(attr == "underline")
+                    this.underline = true;
+            }
+        }
     }
 }
 
@@ -86,8 +91,14 @@ class CssGenerator
             for(const key in section){
                 if(!section.hasOwnProperty(key))
                     continue;
-                const value = section[key];
-                const entry = McStyleEntry.createFromString(value);
+
+                const entry = new McStyleEntry();
+                if (parsedIni['core'] && parsedIni['core']['_default_'])
+                    entry.updateFromString(parsedIni['core']['_default_']);
+                if (section['_default_'])
+                    entry.updateFromString(section['_default_'])
+                entry.updateFromString(section[key]);
+
                 this.processAliases(entry, parsedIni);
                 resultCss += this.renderCssSelector(sectionName, key, entry);
                 resultCss += "\n\n";
@@ -96,11 +107,6 @@ class CssGenerator
 
         // header
         let cssHeader = '';
-        cssHeader += 'pre.skin {' + "\n";
-        const entry = McStyleEntry.createFromString(parsedIni['core']['_default_']);
-        this.processAliases(entry, parsedIni);
-        cssHeader += this.renderSelectorProperties(entry);
-        cssHeader += '}' + "\n";
 
         return cssHeader + resultCss;
     }
@@ -144,15 +150,9 @@ class CssGenerator
         if(entry.colorBg){
             css += 'background-color: ' + McUtils.parseMcColor(entry.colorBg) + ';' + "\n";
         }
-        if(entry.bold){
-            css += 'font-weight: bold;' + "\n";
-        }
-        if(entry.italic){
-            css += 'font-style: italic;' + "\n";
-        }
-        if(entry.underline){
-            css += 'text-decoration: underline;' + "\n";
-        }
+        css += 'font-weight: ' + (entry.bold ? 'bold' : 'normal') + ';' + "\n";
+        css += 'font-style: ' + (entry.italic ? 'italic' : 'normal') + ';' + "\n";
+        css += 'text-decoration: ' + (entry.underline ? 'underline' : 'none') + ';' + "\n";
         return css;
     }
 
@@ -167,7 +167,7 @@ class CssGenerator
     renderCssSelector(sectionName, key, entry)
     {
         let css = '';
-        css += `td pre.skin .${sectionName}_${key} {\n`;
+        css += `td.skin pre span.${sectionName}-${key} {\n`;
         css += this.renderSelectorProperties(entry);
         css += '}\n';
         return css;
