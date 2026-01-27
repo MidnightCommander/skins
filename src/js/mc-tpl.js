@@ -14,12 +14,15 @@ class McTpl
                 const key = parts[1];
                 if(section in variables){
                     if(key in variables[section]){
-                        return variables[section][key];
+                        if(variables[section][key].length >= 1){
+                            return variables[section][key][0];
+                        }
                     }
                 }
             }
             console.log('key ' + contents + 'not found');
-            return '';
+            // mc's default depends on the section and key, we don't duplicate that here
+            return ' ';
         });
         return result;
     }
