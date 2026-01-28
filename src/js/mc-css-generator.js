@@ -120,7 +120,7 @@ class CssGenerator
         let cssHeader = '';
 
         // terminal's default colors and bg image
-        cssHeader += "td.skin pre { ";
+        cssHeader += "div.skin pre { ";
         cssHeader += "color: " + McPalette.default_fg + "; background-color: " + McPalette.default_bg + "; ";
         if($('#terminal-bgimage').is(':checked'))
             cssHeader += "background-image: url('img/alpha-stripes.png'); ";
@@ -204,7 +204,7 @@ class CssGenerator
     renderCssSelector(sectionName, key, entry)
     {
         let css = '';
-        css += `td.skin pre span.${sectionName}-${key} {\n`;
+        css += `div.skin pre span.${sectionName}-${key} {\n`;
         css += this.renderSelectorProperties(entry);
         css += '}\n';
         return css;

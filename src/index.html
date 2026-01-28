@@ -16,7 +16,6 @@
     <script src="js/mc-palette.js?REV_SE-REV_MC" type="text/javascript"></script>
     <script src="js/mc-css-generator.js?REV_SE-REV_MC" type="text/javascript"></script>
     <script src="js/mc-tpl.js?REV_SE-REV_MC" type="text/javascript"></script>
-    <script src="js/mc-templates.js?REV_SE-REV_MC" type="text/javascript"></script>
     <script src="js/mc-utils.js?REV_SE-REV_MC" type="text/javascript"></script>
     <script src="js/mc-cmp-colors.js?REV_SE-REV_MC" type="text/javascript"></script>
 
@@ -34,13 +33,24 @@
                 // generate html
                 const tpl = new McTpl();
 
-                $("#fragment-skin-1").html(tpl.render(templates.skin_view_panel_full, parsedIni));
-                $("#fragment-skin-2").html(tpl.render(templates.skin_view_panel_brief, parsedIni));
-                $("#fragment-skin-3").html(tpl.render(templates.skin_view_panel_long, parsedIni));
-                $("#fragment-skin-4").html(tpl.render(templates.skin_view_editor, parsedIni));
-                $("#fragment-skin-5").html(tpl.render(templates.skin_view_viewer, parsedIni));
-                $("#fragment-skin-6").html(tpl.render(templates.skin_view_diffviewer, parsedIni));
-
+                $.get('tpl/01-panel-full.html.tpl?REV_SE-REV_MC', function (data) {
+                    $('#fragment-skin-1').html(tpl.render(data, parsedIni));
+                });
+                $.get('tpl/02-panel-brief.html.tpl?REV_SE-REV_MC', function (data) {
+                    $('#fragment-skin-2').html(tpl.render(data, parsedIni));
+                });
+                $.get('tpl/03-panel-long.html.tpl?REV_SE-REV_MC', function (data) {
+                    $('#fragment-skin-3').html(tpl.render(data, parsedIni));
+                });
+                $.get('tpl/04-editor.html.tpl?REV_SE-REV_MC', function (data) {
+                    $('#fragment-skin-4').html(tpl.render(data, parsedIni));
+                });
+                $.get('tpl/05-viewer.html.tpl?REV_SE-REV_MC', function (data) {
+                    $('#fragment-skin-5').html(tpl.render(data, parsedIni));
+                });
+                $.get('tpl/06-diffviewer.html.tpl?REV_SE-REV_MC', function (data) {
+                    $('#fragment-skin-6').html(tpl.render(data, parsedIni));
+                });
 
                 // generate css
                 const generator = new CssGenerator(new GeneratorConfig);
@@ -133,15 +143,15 @@
             <li><a href="#fragment-skin-5"><span>Viewer</span></a></li>
             <li><a href="#fragment-skin-6"><span>Diff viewer</span></a></li>
         </ul>
-        <div class="skin-view-container" id="fragment-skin-1">
+        <div class="skin" id="fragment-skin-1">
             <!-- dummy element, to take width -->
-            <pre class="skin" style="background-color: black;"><script>document.write((' '.repeat(100) + '\n').repeat(30))</script></pre>
+            <pre class="skin" style="background-color: black;"><script>document.write((' '.repeat(100) + '\n').repeat(32))</script></pre>
         </div>
-        <div class="skin-view-container" id="fragment-skin-2"></div>
-        <div class="skin-view-container" id="fragment-skin-3"></div>
-        <div class="skin-view-container" id="fragment-skin-4"></div>
-        <div class="skin-view-container" id="fragment-skin-5"></div>
-        <div class="skin-view-container" id="fragment-skin-6"></div>
+        <div class="skin" id="fragment-skin-2"></div>
+        <div class="skin" id="fragment-skin-3"></div>
+        <div class="skin" id="fragment-skin-4"></div>
+        <div class="skin" id="fragment-skin-5"></div>
+        <div class="skin" id="fragment-skin-6"></div>
     </div>
     <div class="mt-2 ml-2" style="width: 810px">
         Terminal's color settings
