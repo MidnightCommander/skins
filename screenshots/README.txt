@@ -144,8 +144,8 @@ Diff viewer
 Merge the screenshots
 =====================
 
-Once the screenshots are created, edit src/js/mc-templates.js and replace the
-old screenshots with the newly taken ones. It will be obvious.
+Once the screenshots are created, overwrite the corresponding ones with them
+under the src/tpl directory.
 
 Reload the skin browser.
 
