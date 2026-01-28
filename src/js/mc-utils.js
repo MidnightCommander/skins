@@ -38,54 +38,37 @@ class McUtils {
 
 
     /**
-     * Convert colors from rgbXXX, grayXX and dictionary color names to web #XXXXXX format
+     * Convert colors from rgbXXX, grayXX and dictionary color names to web #RRGGBB format
      *
      * @param {string} mcColor
+     * @param {bool} is_bold
      * @return {string}
      */
-    static parseMcColor(mcColor)
+    static parseMcColor(mcColor, is_bold)
     {
-        // named and colorXXX colors
-        if(mcColor in McConst.colors)
-            return McConst.colors[mcColor];
-
-        // rgbXXX format
-        if(mcColor.toLowerCase().startsWith('rgb')){
-            // $r = str_pad(dechex(round(255 * $key{3} / 5)), 2, STR_PAD_LEFT);
-            const r = Math.round(255 * mcColor[3] / 5).toString(16).padStart(2, '0');
-            const g = Math.round(255 * mcColor[4] / 5).toString(16).padStart(2, '0');
-            const b = Math.round(255 * mcColor[5] / 5).toString(16).padStart(2, '0');
-            return '#' + r + g + b;
+        // "colorXXX" identifiers
+        if (mcColor.startsWith('color')){
+            const i = parseInt(mcColor.substring(5), 10);
+            return McPalette.palette[i][1];
         }
 
-        // grayXX format
-        if(mcColor.toLowerCase().startsWith('gray')){
-            const number = mcColor.substring(4);
-            return McConst.colors['color' + (232 + parseInt(number))];
+        // palette colors using their names like "black", "red", "rgb123", "gray23" etc.
+        for(let i = 0; i < 256; i++){
+            if(McPalette.palette[i][0] == mcColor){
+                if(i < 8 && is_bold && $('#terminal-boldbright').is(':checked'))
+                    i += 8;
+                return McPalette.palette[i][1];
+            }
         }
 
-        // #XXXXXX format (for true color skins)
+        // #RRGGBB format (for true color skins)
         if(mcColor.startsWith('#')){
             return mcColor;
         }
-    }
 
-    /**
-     * Convert web color to rgbXXX format
-     *
-     * @param {string} webColor Color in #XXXXXX format
-     * @return {string}
-     */
-    static web2rgb(webColor)
-    {
-        const int = parseInt(webColor.substring(1), 16);
-        const r = int >> 16 & 0xFF;
-        const g = int >> 8 & 0xFF;
-        const b = int & 0xFF;
-        const rr = Math.round(r * 5 / 255);
-        const gg = Math.round(g * 5 / 255);
-        const bb = Math.round(b * 5 / 255);
-        return `rgb${rr}${gg}${bb}`;
+        // 'default' means the terminal's defaults. The return value is further processed by the caller.
+        if(mcColor == 'default')
+            return 'default';
     }
 
 

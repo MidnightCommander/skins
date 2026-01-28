@@ -16,6 +16,8 @@ class McStyleEntry{
         this.bold = false;
         this.italic = false;
         this.underline = false;
+        this.reverse = false;
+        this.blink = false;
     }
 
     /**
@@ -45,6 +47,8 @@ class McStyleEntry{
             this.bold = false;
             this.italic = false;
             this.underline = false;
+            this.reverse = false;
+            this.blink = false;
 
             const attrs = parts[2].split('+');
             for(const attr of attrs){
@@ -54,6 +58,10 @@ class McStyleEntry{
                     this.italic = true;
                 else if(attr == "underline")
                     this.underline = true;
+                else if(attr == "reverse")
+                    this.reverse = true;
+                else if(attr == "blink")
+                    this.blink = true;
             }
         }
     }
@@ -78,6 +86,9 @@ class CssGenerator
     {
         const skipSections = ['skin', 'lines', 'widget-panel', 'widget-scrollbar', 'widget-editor'];
         let resultCss = '';
+
+        McPalette.set_light_mode($('#terminal-light').is(':checked'));
+        McPalette.apply_palette($('#terminal-palettes').val());
 
         for(const sectionName in parsedIni)
         {
@@ -107,6 +118,15 @@ class CssGenerator
 
         // header
         let cssHeader = '';
+
+        // terminal's default colors and bg image
+        cssHeader += "td.skin pre { ";
+        cssHeader += "color: " + McPalette.default_fg + "; background-color: " + McPalette.default_bg + "; ";
+        if($('#terminal-bgimage').is(':checked'))
+            cssHeader += "background-image: url('img/alpha-stripes.png'); ";
+        cssHeader += "}\n";
+
+        cssHeader += "@keyframes blinker { 50% { color: transparent; } }\n";
 
         return cssHeader + resultCss;
     }
@@ -144,15 +164,32 @@ class CssGenerator
     renderSelectorProperties(entry)
     {
         let css = '';
-        if(entry.color){
-            css += 'color: ' + McUtils.parseMcColor(entry.color) + ';' + "\n";
+        let fg = McUtils.parseMcColor(entry.color, entry.bold);
+        let bg = McUtils.parseMcColor(entry.colorBg, false);
+        if(entry.reverse){
+            // Swap fg and bg (after brightening fg subject to the bold attribute's behavior).
+            // Note that the background image won't be visible through the letters, meh.
+            if(fg == 'default')
+                fg = McPalette.default_fg;
+            if(bg == 'default')
+                bg = McPalette.default_bg;
+            let tmp = fg; fg = bg; bg = tmp;
+        }else{
+            if(fg == 'default')
+                fg = McPalette.default_fg;
+            if(bg == 'default')
+                bg = 'transparent';  // let us see the background image
         }
-        if(entry.colorBg){
-            css += 'background-color: ' + McUtils.parseMcColor(entry.colorBg) + ';' + "\n";
+        if(fg){
+            css += 'color: ' + fg + ';' + "\n";
+        }
+        if(bg){
+            css += 'background-color: ' + bg + ';' + "\n";
         }
         css += 'font-weight: ' + (entry.bold ? 'bold' : 'normal') + ';' + "\n";
         css += 'font-style: ' + (entry.italic ? 'italic' : 'normal') + ';' + "\n";
         css += 'text-decoration: ' + (entry.underline ? 'underline' : 'none') + ';' + "\n";
+        css += 'animation: ' + (entry.blink ? 'blinker 1s step-start infinite' : 'none') + ';' + "\n";
         return css;
     }
 
