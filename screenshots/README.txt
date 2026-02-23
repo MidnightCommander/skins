@@ -76,6 +76,10 @@ Panel - Full
   - Move the cursor to "marked-file-1".
   - Alt+')' (Alt+Shift+0 in US kbd layout) to scroll the long filename.
 
+  Type some command so that its coloring is also demonstrated. (Maybe also
+  mark a part of it using the mouse to showcase the marked color, but I find
+  that too cluttered.)
+
   Open Left menu and navigate to the third item.
 
 Panel - Brief
